@@ -3,8 +3,8 @@ import React from "react";
 function Filtro() {
   return (
     <div>
-        
-      <h2>Filtro</h2>
+
+      <h2>Filtros</h2>
       <p>Valor Máximo</p>
       <input type="number" min="0" />
       {/* <input type="range"/> */}
