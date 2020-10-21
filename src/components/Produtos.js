@@ -1,9 +1,16 @@
 import React from "react";
 import Card from "./Card"
+import styled from "styled-components"
+
+const estoquePesquisa = styled.div`
+diplay: grid;
+justify-content:center;
+align-items:space-between;
+`
 
 function Produtos() {
   return (
-  <div>
+  <estoquePesquisa>
       <p>Estoque</p>
       <select>
           <option>Maior Preço</option>
@@ -11,7 +18,7 @@ function Produtos() {
       </select>
       <Card/>
 
-  </div>
+  </estoquePesquisa>
   )
 }
 
