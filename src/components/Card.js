@@ -1,7 +1,8 @@
 import React from "react";
 
-function Cards() {
-  return <div></div>;
+export function Card() {
+  return (
+    <div></div>
+  )
 }
-
-export default Cards;
+export default Card;
