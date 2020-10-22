@@ -91,9 +91,9 @@ const produtos = [
 ]
 class App extends React.Component {
   state = {
-    filtroMin: 300,
+    filtroMin: 100,
     filtroMax: 500,
-    filtroNome: "Camiseta 05",
+    filtroNome: "Camiseta",
   };
   render() {
     return (
