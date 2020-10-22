@@ -5,7 +5,6 @@ import ItemCarrinho from "./ItemCarrinho";
 const ContainerdoCarrinho = styled.div`
   border: 1px solid black;
   padding: 8px;
-  background-color: purple; //Só para ver onde está o container
 `;
 const ContainerLista = styled.div`
   display: grid;
