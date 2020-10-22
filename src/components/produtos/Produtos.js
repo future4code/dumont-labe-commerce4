@@ -3,7 +3,7 @@ import Card from "./Card"
 import styled from "styled-components"
 
 const estoquePesquisa = styled.div`
-diplay: grid;
+display: grid;
 justify-content:center;
 align-items:space-between;
 `
