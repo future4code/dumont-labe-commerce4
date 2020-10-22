@@ -1,7 +1,30 @@
 import React from "react";
 import styled from "styled-components"
-function Carrinho() {
-  return <div></div>;
+import ItemCarrinho from "./ItemCarrinho";
+
+const ContainerdoCarrinho = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+  background-color: purple; //Só para ver onde está o container
+`;
+const ContainerLista = styled.div`
+  display: grid;
+  gap: 4px;
+`
+
+class Carrinho extends React.Component {
+  render(){
+    return <ContainerdoCarrinho>
+      <h3>Carrinho:</h3>
+      <ContainerLista>
+        <ItemCarrinho/>
+        <ItemCarrinho/>
+        <ItemCarrinho/>
+        <ItemCarrinho/>
+      </ContainerLista>
+      <p>Valor total: R$ 500,00</p>
+    </ContainerdoCarrinho>
+  }
 }
 
 export default Carrinho;
