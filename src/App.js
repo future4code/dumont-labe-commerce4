@@ -91,16 +91,44 @@ const produtos = [
 ]
 class App extends React.Component {
   state = {
-    cards: "",
-    filtro: "",
-    carrinho: "",
+    filtroMin: 100,
+    filtroMax: 500,
+    filtroNome: "Camiseta",
+    produtosNoCarrinho: [
+      {
+        cod: 1,
+        nome: "Camiseta 01",
+        valor: 100.0,
+        img: "https://picsum.photos/200/200?a=1",
+        quantidade: 1,
+      },
+      {
+        cod: 2,
+        nome: "Camiseta 02",
+        valor: 200.0,
+        img: "https://picsum.photos/200/200?a=1",
+        quantidade: 3,
+      },
+
+    ]
   };
   render() {
     return (
       <AppContainer>
-        <Filtro />
-        <Produtos produtos={produtos}/>
-        <Carrinho />
+        <Filtro 
+          filtroMin={this.state.filtroMin}
+          filtroMax={this.state.filtroMax}
+          filtroNome={this.state.filtroNome}
+        />
+        <Produtos 
+          produtos={produtos}
+          filtroMin={this.state.filtroMin}
+          filtroMax={this.state.filtroMax}
+          filtroNome={this.state.filtroNome}
+        />
+        <Carrinho 
+          produtosNoCarrinho={this.state.produtosNoCarrinho}
+        />
       </AppContainer>
     );
   }
