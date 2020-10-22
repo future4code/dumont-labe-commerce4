@@ -12,16 +12,23 @@ const ContainerLista = styled.div`
 `
 
 class Carrinho extends React.Component {
+  calculaValorTotal = () => {
+    let valorTotal = 0;
+    for(let produto of this.props.produtosNoCarrinho){
+        valorTotal += produto.valor * produto.quantidade
+    }
+    return valorTotal
+}
   render(){
     return <ContainerdoCarrinho>
       <h3>Carrinho:</h3>
       <ContainerLista>
-        <ItemCarrinho/>
-        <ItemCarrinho/>
-        <ItemCarrinho/>
-        <ItemCarrinho/>
+        {this.props.produtosNoCarrinho.map((produto) => {
+          return <ItemCarrinho item={produto}/>
+        })}
+        
       </ContainerLista>
-      <p>Valor total: R$ 500,00</p>
+      <p>Valor total: R${this.calculaValorTotal()},00</p>
     </ContainerdoCarrinho>
   }
 }

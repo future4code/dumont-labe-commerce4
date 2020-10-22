@@ -94,6 +94,23 @@ class App extends React.Component {
     filtroMin: 100,
     filtroMax: 500,
     filtroNome: "Camiseta",
+    produtosNoCarrinho: [
+      {
+        cod: 1,
+        nome: "Camiseta 01",
+        valor: 100.0,
+        img: "https://picsum.photos/200/200?a=1",
+        quantidade: 1,
+      },
+      {
+        cod: 2,
+        nome: "Camiseta 02",
+        valor: 200.0,
+        img: "https://picsum.photos/200/200?a=1",
+        quantidade: 3,
+      },
+
+    ]
   };
   render() {
     return (
@@ -104,12 +121,14 @@ class App extends React.Component {
           filtroNome={this.state.filtroNome}
         />
         <Produtos 
-        produtos={produtos}
-        filtroMin={this.state.filtroMin}
-        filtroMax={this.state.filtroMax}
-        filtroNome={this.state.filtroNome}
+          produtos={produtos}
+          filtroMin={this.state.filtroMin}
+          filtroMax={this.state.filtroMax}
+          filtroNome={this.state.filtroNome}
         />
-        <Carrinho />
+        <Carrinho 
+          produtosNoCarrinho={this.state.produtosNoCarrinho}
+        />
       </AppContainer>
     );
   }
