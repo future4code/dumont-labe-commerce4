@@ -1,10 +1,10 @@
 
 import React from "react"; 
  
-import Home from " ./components/Home";
-import Produtos from "./components/Produtos";  
-import Carrinho from "./components/Carrinho";
-import Filtro from "./components/Filtro";
+import Home from "./components/Home";
+import Produtos from "./components/produtos/Produtos";  
+import Carrinho from "./components/carrinho/Carrinho";
+import Filtro from "./components/filtro/Filtro";
 import "./App.css";
 import styled from "styled-components"
 
