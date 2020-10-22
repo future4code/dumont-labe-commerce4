@@ -28,6 +28,9 @@ class Produtos extends React.Component {
           </label>
         </CardsFilter>
         <Card />
+        <Card />
+        <Card />
+        <Card /> 
       </CardsContainer>
     );
   }

@@ -1,7 +1,6 @@
 
 import React from "react"; 
  
-import Home from "./components/Home";
 import Produtos from "./components/produtos/Produtos";  
 import Carrinho from "./components/carrinho/Carrinho";
 import Filtro from "./components/filtro/Filtro";
@@ -10,8 +9,9 @@ import styled from "styled-components"
 
 
 const AppContainer = styled.div`
-background-color: red;
-`
+display: grid;
+grid-template-columns: 1fr 3fr 1fr;
+`;
 class App extends React.Component {
   state = {
     cards: "",
@@ -21,10 +21,9 @@ class App extends React.Component {
   render() {
     return (
       <AppContainer>
-        <Home />
+        <Filtro />
         <Produtos />
         <Carrinho />
-        <Filtro />
       </AppContainer>
     );
   }
