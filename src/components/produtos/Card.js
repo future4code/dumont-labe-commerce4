@@ -7,7 +7,10 @@ const CardsContainer = styled.div`
 `
 
 const CardInfos = styled.div`
-   
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+
 `
 
 const AddCarrinho = styled.button`
