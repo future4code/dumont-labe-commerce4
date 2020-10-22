@@ -2,36 +2,46 @@ import React from "react";
 import Card from "./Card";
 import styled from "styled-components";
 
-const CardsContainer = styled.div`
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+const ContainerDeProdutos = styled.div`
   border: 1px solid black;
+
 `;
 
-const CardsFilter = styled.div``;
+const Cabecalho = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+`;
+
+const GridProdutos = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 8px;
+
+`
 
 class Produtos extends React.Component {
   render() {
     return (
-      <CardsContainer>
+      <ContainerDeProdutos>
+        <Cabecalho>
         <p>Estoque de produtos: 10</p>
-        <CardsFilter>
           <label>
-            Filtrar:
+            Ordenação:
             <select>
-              <option>Maior preço</option>
-              <option>Menor preço</option>
+              <option>Crescente</option>
+              <option>Decrescente</option>
             </select>
           </label>
-        </CardsFilter>
-        <Card />
-        <Card />
-        <Card />
-        <Card /> 
-      </CardsContainer>
+        </Cabecalho>
+        <GridProdutos>
+          {this.props.produtos.map((produto) => {
+            return <Card produto={produto}/> 
+          })}
+        </GridProdutos>
+      </ContainerDeProdutos>
     );
   }
 }

@@ -2,30 +2,38 @@ import React from "react";
 import styled from "styled-components"
 
 const CardsContainer = styled.div`
-  border: 2px solid black;
-  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
 `
 
 const CardInfos = styled.div`
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: center;
+   padding: 16px;
+
+  p {
+    margin: 4px 0;
+  }
 
 `
 
 const AddCarrinho = styled.button`
   align-self: center;
+  margin-top: 4px;
 `
 
 class Card extends React.Component {
   render() {
+    const produto = this.props.produto
     return (
       <CardsContainer>
-        <img src={'https://picsum.photos/300/300'} />
+        <img src={produto.img} />
         <CardInfos>
-          <p>Nome do produto</p>
-          <p>Preço do produto</p>
-          <button>Adicionar ao carrinho</button>
+          <p>{produto.nome}</p>
+          <p>R${produto.valor},00</p>
+          <AddCarrinho>Adicionar ao carrinho</AddCarrinho>
         </CardInfos>
       </CardsContainer>
     )    
