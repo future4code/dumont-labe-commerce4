@@ -11,13 +11,7 @@ const ContainerdoItem = styled.div`
         margin: 0;
     }
 
-    button {
-        width: 100px;
-    }
-
 `
-
-
 class ItemCarrinho extends React.Component {
     render(){
         return <ContainerdoItem>
