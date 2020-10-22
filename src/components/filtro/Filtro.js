@@ -14,31 +14,39 @@ const DivInput = styled.label`
   margin-bottom: 8px;
 `
 
-function Filtro() {
-  return (
+class Filtro extends React.Component {
+  render() {
+    return (
 
-    <DivFiltro>    
-      <h3>Filtros</h3>
-      <div>
-        <DivInput>
-          Valor Mínimo:
-          <input type="number" min="0" />
-        </DivInput>
-      </div>
-      <div>
-        <DivInput>
-          Valor Máximo:
-          <input type="number" min="0" />
-        </DivInput>
-      </div>
-      <div>
-        <DivInput>
-          Busca por nome:
-          <input type="text"/>
-        </DivInput>
-      </div>
-    </DivFiltro>
-  );
+      <DivFiltro>    
+        <h3>Filtros</h3>
+        <div>
+          <DivInput>
+            Valor Mínimo:
+            <input type="number"
+            value={this.props.filtroMin}
+            />
+          </DivInput>
+        </div>
+        <div>
+          <DivInput>
+            Valor Máximo:
+            <input type="number"
+            value={this.props.filtroMax}
+            />
+          </DivInput>
+        </div>
+        <div>
+          <DivInput>
+            Busca por nome:
+            <input type="text"
+            value={this.props.filtroNome}
+            />
+          </DivInput>
+        </div>
+      </DivFiltro>
+    );
+  }
 }
 
 export default Filtro;

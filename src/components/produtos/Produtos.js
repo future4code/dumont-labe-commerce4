@@ -23,11 +23,20 @@ const GridProdutos = styled.div`
 `
 
 class Produtos extends React.Component {
+  pegaListaFiltrada = () => {
+    return this.props.produtos
+      .filter((produto) => produto.valor <= this.props.filtroMax)
+      .filter((produto) => produto.valor >= this.props.filtroMin)
+      .filter((produto) => produto.nome.includes(this.props.filtroNome))
+      // .sort((a, b) => )
+  }
+
   render() {
+    const listaFiltrada = this.pegaListaFiltrada()
     return (
       <ContainerDeProdutos>
         <Cabecalho>
-        <p>Estoque de produtos: 10</p>
+        <p>Estoque de produtos: 12</p>
           <label>
             Ordenação:
             <select>
@@ -37,7 +46,7 @@ class Produtos extends React.Component {
           </label>
         </Cabecalho>
         <GridProdutos>
-          {this.props.produtos.map((produto) => {
+          {listaFiltrada.map((produto) => {
             return <Card produto={produto}/> 
           })}
         </GridProdutos>

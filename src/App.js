@@ -91,15 +91,24 @@ const produtos = [
 ]
 class App extends React.Component {
   state = {
-    cards: "",
-    filtro: "",
-    carrinho: "",
+    filtroMin: 300,
+    filtroMax: 500,
+    filtroNome: "Camiseta 05",
   };
   render() {
     return (
       <AppContainer>
-        <Filtro />
-        <Produtos produtos={produtos}/>
+        <Filtro 
+          filtroMin={this.state.filtroMin}
+          filtroMax={this.state.filtroMax}
+          filtroNome={this.state.filtroNome}
+        />
+        <Produtos 
+        produtos={produtos}
+        filtroMin={this.state.filtroMin}
+        filtroMax={this.state.filtroMax}
+        filtroNome={this.state.filtroNome}
+        />
         <Carrinho />
       </AppContainer>
     );
