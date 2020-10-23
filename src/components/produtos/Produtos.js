@@ -51,7 +51,10 @@ class Produtos extends React.Component {
         </Cabecalho>
         <GridProdutos>
           {listaFiltrada.map((produto) => {
-            return <Card produto={produto}/> 
+            return <Card
+              produto={produto} 
+              adicionaProdutoNoCarrinho={this.props.adicionaProdutoNoCarrinho}
+            /> 
           })}
         </GridProdutos>
       </ContainerDeProdutos>

@@ -25,6 +25,7 @@ class Filtro extends React.Component {
             Valor Mínimo:
             <input type="number"
             value={this.props.filtroMin}
+            onChange={this.props.onChangeFiltroMin}
             />
           </DivInput>
         </div>
@@ -33,6 +34,7 @@ class Filtro extends React.Component {
             Valor Máximo:
             <input type="number"
             value={this.props.filtroMax}
+            onChange={this.props.onChangeFiltroMax}
             />
           </DivInput>
         </div>
@@ -41,6 +43,7 @@ class Filtro extends React.Component {
             Busca por nome:
             <input type="text"
             value={this.props.filtroNome}
+            onChange={this.props.onChangeFiltroNome}
             />
           </DivInput>
         </div>

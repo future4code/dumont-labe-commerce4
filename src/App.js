@@ -112,6 +112,41 @@ class App extends React.Component {
 
     ]
   };
+
+  onChangeFiltroMin = (event) =>{
+    this.setState({filtroMin: event.target.value})
+  }
+
+  onChangeFiltroMax = (event) =>{
+    this.setState({filtroMax: event.target.value})
+  }
+
+  onChangeFiltroNome = (event) =>{
+    this.setState({filtroNome: event.target.value})
+  }
+
+  adicionaProdutoNoCarrinho = (codProduto) => {
+    const addNoCarrinho = this.state.produtosNoCarrinho.find(produto => codProduto === produto.cod)
+
+    if(addNoCarrinho){
+      const novoProdutoAdd = this.state.produtosNoCarrinho.map(produto => {
+        if(codProduto === produto.cod){
+          return{
+            ...produto,
+            quantidade: produto.quantidade + 1
+          }
+        }
+        return produto
+      })
+      this.setState({produtosNoCarrinho: novoProdutoAdd})
+    } else {
+      const produtoNovo = produtos.find(produto => codProduto === produto.cod)
+
+      const novoProdutoAdd = [...this.state.produtosNoCarrinho, {...produtoNovo, quantidade: 1}]
+
+      this.setState({produtosNoCarrinho: novoProdutoAdd})
+    }
+  }
   render() {
     return (
       <AppContainer>
@@ -119,12 +154,17 @@ class App extends React.Component {
           filtroMin={this.state.filtroMin}
           filtroMax={this.state.filtroMax}
           filtroNome={this.state.filtroNome}
+          onChangeFiltroMin={this.onChangeFiltroMin}
+          onChangeFiltroMax={this.onChangeFiltroMax}
+          onChangeFiltroNome={this.onChangeFiltroNome}
+
         />
         <Produtos 
           produtos={produtos}
           filtroMin={this.state.filtroMin}
           filtroMax={this.state.filtroMax}
           filtroNome={this.state.filtroNome}
+          adicionaProdutoNoCarrinho={this.adicionaProdutoNoCarrinho}
         />
         <Carrinho 
           produtosNoCarrinho={this.state.produtosNoCarrinho}

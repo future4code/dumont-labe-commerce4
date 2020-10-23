@@ -33,7 +33,9 @@ class Card extends React.Component {
         <CardInfos>
           <p>{produto.nome}</p>
           <p>R${produto.valor},00</p>
-          <AddCarrinho>Adicionar ao carrinho</AddCarrinho>
+          <AddCarrinho onClick={() => this.props.adicionaProdutoNoCarrinho(produto.cod)}>
+            Adicionar ao carrinho
+          </AddCarrinho>
         </CardInfos>
       </CardsContainer>
     )    
