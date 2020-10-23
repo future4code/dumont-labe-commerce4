@@ -3,15 +3,32 @@ import styled from "styled-components"
 
 
 const DivFiltro = styled.div`
-border: 1px solid black;
-padding: 8px;
-`;
+display: flex;
+justify-content: space-evenly;
+background-color: #1d3557;
+
+
+.inputValores {
+  border-radius: 10px;
+  width: 100px;
+  height: 20px;
+  border-style: none;
+}
+
+.inputBusca {
+  border-radius: 10px;
+  width: 400px;
+  height: 20px;
+  border-style: none;
+}
+`
 
 const DivInput = styled.label`
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: flex-start;
   margin-bottom: 8px;
+  
 `
 
 class Filtro extends React.Component {
@@ -19,29 +36,34 @@ class Filtro extends React.Component {
     return (
 
       <DivFiltro>    
-        <h3>Filtros</h3>
+       
         <div>
           <DivInput>
-            Valor Mínimo:
-            <input type="number"
+            <input className="inputValores" 
+            type="number"
+            placeholder="Valor mínimo"
             value={this.props.filtroMin}
             onChange={this.props.onChangeFiltroMin}
             />
           </DivInput>
         </div>
+
         <div>
           <DivInput>
-            Valor Máximo:
-            <input type="number"
+            <input className="inputValores" 
+            type="number"
+            placeholder="Valor máximo"
             value={this.props.filtroMax}
             onChange={this.props.onChangeFiltroMax}
             />
           </DivInput>
         </div>
+
         <div>
           <DivInput>
-            Busca por nome:
-            <input type="text"
+            <input className="inputBusca" 
+            type="text"
+            placeholder="Buscar"
             value={this.props.filtroNome}
             onChange={this.props.onChangeFiltroNome}
             />

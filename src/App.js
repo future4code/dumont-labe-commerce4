@@ -4,7 +4,6 @@ import React from "react";
 import Produtos from "./components/produtos/Produtos";  
 import Carrinho from "./components/carrinho/Carrinho";
 import Filtro from "./components/filtro/Filtro";
-import "./App.css";
 import styled from "styled-components";
 import produto1 from "./img/produto1.jpg";
 import produto2 from "./img/produto2.jpg";
@@ -20,11 +19,13 @@ import produto11 from "./img/produto11.jpg";
 import produto12 from "./img/produto12.jpg";
 
 
-
 const AppContainer = styled.div`
+margin: 0px;
+padding: 0px;
+font-family: sans-serif;
 display: grid;
-grid-template-columns: 1fr 3fr 1fr;
-padding: 16px;
+grid-template-rows: 1fr 3fr;
+
 gap: 8px;
 `;
 
@@ -171,6 +172,12 @@ class App extends React.Component {
           onChangeFiltroNome={this.onChangeFiltroNome}
 
         />
+
+        <Carrinho 
+          produtosNoCarrinho={this.state.produtosNoCarrinho}
+          removeProdutoCarrinho={this.removeProdutoCarrinho}
+        />
+
         <Produtos 
           produtos={produtos}
           filtroMin={this.state.filtroMin}
@@ -178,10 +185,7 @@ class App extends React.Component {
           filtroNome={this.state.filtroNome}
           adicionaProdutoNoCarrinho={this.adicionaProdutoNoCarrinho}
         />
-        <Carrinho 
-          produtosNoCarrinho={this.state.produtosNoCarrinho}
-          removeProdutoCarrinho={this.removeProdutoCarrinho}
-        />
+        
       </AppContainer>
     );
   }
