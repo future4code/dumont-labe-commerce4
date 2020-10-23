@@ -94,23 +94,7 @@ class App extends React.Component {
     filtroMin: 100,
     filtroMax: 500,
     filtroNome: "Camiseta",
-    produtosNoCarrinho: [
-      {
-        cod: 1,
-        nome: "Camiseta 01",
-        valor: 100.0,
-        img: "https://picsum.photos/200/200?a=1",
-        quantidade: 1,
-      },
-      {
-        cod: 2,
-        nome: "Camiseta 02",
-        valor: 200.0,
-        img: "https://picsum.photos/200/200?a=1",
-        quantidade: 3,
-      },
-
-    ]
+    produtosNoCarrinho: []
   };
 
   onChangeFiltroMin = (event) =>{
@@ -147,6 +131,21 @@ class App extends React.Component {
       this.setState({produtosNoCarrinho: novoProdutoAdd})
     }
   }
+
+  removeProdutoCarrinho = (codProduto) => {
+    const novoProdutoNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
+      if(produto.cod === codProduto){
+        return {
+          ...produto,
+          quantidade: produto.quantidade -1
+        }
+      }
+      return produto
+    }).filter((produto) => produto.quantidade > 0)
+
+    this.setState({produtosNoCarrinho: novoProdutoNoCarrinho})
+  }
+
   render() {
     return (
       <AppContainer>
@@ -168,6 +167,7 @@ class App extends React.Component {
         />
         <Carrinho 
           produtosNoCarrinho={this.state.produtosNoCarrinho}
+          removeProdutoCarrinho={this.state.removeProdutoCarrinho}
         />
       </AppContainer>
     );
