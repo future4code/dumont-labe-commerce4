@@ -94,24 +94,58 @@ class App extends React.Component {
     filtroMin: 100,
     filtroMax: 500,
     filtroNome: "Camiseta",
-    produtosNoCarrinho: [
-      {
-        cod: 1,
-        nome: "Camiseta 01",
-        valor: 100.0,
-        img: "https://picsum.photos/200/200?a=1",
-        quantidade: 1,
-      },
-      {
-        cod: 2,
-        nome: "Camiseta 02",
-        valor: 200.0,
-        img: "https://picsum.photos/200/200?a=1",
-        quantidade: 3,
-      },
-
-    ]
+    produtosNoCarrinho: []
   };
+
+  onChangeFiltroMin = (event) =>{
+    this.setState({filtroMin: event.target.value})
+  }
+
+  onChangeFiltroMax = (event) =>{
+    this.setState({filtroMax: event.target.value})
+  }
+
+  onChangeFiltroNome = (event) =>{
+    this.setState({filtroNome: event.target.value})
+  }
+
+  adicionaProdutoNoCarrinho = (codProduto) => {
+    const addNoCarrinho = this.state.produtosNoCarrinho.find(produto => codProduto === produto.cod)
+
+    if(addNoCarrinho){
+      const novoProdutoAdd = this.state.produtosNoCarrinho.map(produto => {
+        if(codProduto === produto.cod){
+          return{
+            ...produto,
+            quantidade: produto.quantidade + 1
+          }
+        }
+        return produto
+      })
+      this.setState({produtosNoCarrinho: novoProdutoAdd})
+    } else {
+      const produtoNovo = produtos.find(produto => codProduto === produto.cod)
+
+      const novoProdutoAdd = [...this.state.produtosNoCarrinho, {...produtoNovo, quantidade: 1}]
+
+      this.setState({produtosNoCarrinho: novoProdutoAdd})
+    }
+  }
+
+  removeProdutoCarrinho = (codProduto) => {
+    const novoProdutoNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
+      if(produto.cod === codProduto) {
+        return {
+          ...produto,
+          quantidade: produto.quantidade -1
+        }
+      }
+      return produto
+    }).filter((produto) => produto.quantidade > 0)
+
+    this.setState({ produtosNoCarrinho: novoProdutoNoCarrinho })
+    
+  }
   render() {
     return (
       <AppContainer>
@@ -119,15 +153,21 @@ class App extends React.Component {
           filtroMin={this.state.filtroMin}
           filtroMax={this.state.filtroMax}
           filtroNome={this.state.filtroNome}
+          onChangeFiltroMin={this.onChangeFiltroMin}
+          onChangeFiltroMax={this.onChangeFiltroMax}
+          onChangeFiltroNome={this.onChangeFiltroNome}
+
         />
         <Produtos 
           produtos={produtos}
           filtroMin={this.state.filtroMin}
           filtroMax={this.state.filtroMax}
           filtroNome={this.state.filtroNome}
+          adicionaProdutoNoCarrinho={this.adicionaProdutoNoCarrinho}
         />
         <Carrinho 
           produtosNoCarrinho={this.state.produtosNoCarrinho}
+          removeProdutoCarrinho={this.state.removeProdutoCarrinho}
         />
       </AppContainer>
     );
