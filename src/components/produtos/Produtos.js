@@ -35,6 +35,10 @@ class Produtos extends React.Component {
       .sort((a, b) => this.state.ordenacao === "Crescente" ? a.valor - b.valor : b.valor - a.valor)
   }
 
+  alteraOrdenacao = (event) => {
+    this.setState({ordenacao: event.target.value})
+  }
+
   render() {
     const listaFiltrada = this.pegaListaFiltrada()
     return (
@@ -43,7 +47,7 @@ class Produtos extends React.Component {
           <p>Estoque de produtos: {listaFiltrada.length}</p>
           <label>
             Ordenação:
-            <select value={this.state.ordenacao}>
+            <select value={this.state.ordenacao} onChange={this.alteraOrdenacao}>
               <option value={"Crescente"}>Crescente</option>
               <option value={"Decrescente"}>Decrescente</option>
             </select>
