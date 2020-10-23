@@ -4,7 +4,16 @@ import styled from "styled-components"
 const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  background-color: #ccc;
+
+  img {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    align-items: center;
+    justify-items: center;
+    background-color: red;
+  }
 `
 
 const CardInfos = styled.div`
