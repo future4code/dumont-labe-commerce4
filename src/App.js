@@ -5,7 +5,20 @@ import Produtos from "./components/produtos/Produtos";
 import Carrinho from "./components/carrinho/Carrinho";
 import Filtro from "./components/filtro/Filtro";
 import "./App.css";
-import styled from "styled-components"
+import styled from "styled-components";
+import produto1 from "./img/produto1.jpg";
+import produto2 from "./img/produto2.jpg";
+import produto3 from "./img/produto3.jpg"
+import produto4 from "./img/produto4.jpg";
+import produto5 from "./img/produto5.jpg";
+import produto6 from "./img/produto6.jpg";
+import produto7 from "./img/produto7.jpg";
+import produto8 from "./img/produto8.jpg";
+import produto9 from "./img/produto9.jpg";
+import produto10 from "./img/produto10.jpg";
+import produto11 from "./img/produto11.jpg";
+import produto12 from "./img/produto12.jpg";
+
 
 
 const AppContainer = styled.div`
@@ -18,82 +31,82 @@ gap: 8px;
 const produtos = [
   {
     cod: 1,
-    nome: "Camiseta 01",
+    nome: "UFO colorida",
     valor: 100.0,
-    img: "https://picsum.photos/200/200?a=1",
+    img: produto1,
   },
   {
     cod: 2,
-    nome: "Camiseta 02",
+    nome: "Me Leva!",
     valor: 110.0,
-    img: "https://picsum.photos/200/200?a=2",
+    img: produto2,
   },
   {
     cod: 3,
-    nome: "Camiseta 03",
+    nome: "Astro relax",
     valor: 150.0,
-    img: "https://picsum.photos/200/200?a=3",
+    img: produto3,
   },
   {
     cod: 4,
-    nome: "Camiseta 04",
+    nome: "Rocket",
     valor: 280.0,
-    img: "https://picsum.photos/200/200?a=4",
+    img: produto4,
   },
   {
     cod: 5,
-    nome: "Camiseta 05",
+    nome: "De boas",
     valor: 500.0,
-    img: "https://picsum.photos/200/200?a=5",
+    img: produto5,
   },
   {
     cod: 6,
-    nome: "Camiseta 06",
+    nome: "Space flower",
     valor: 250.0,
-    img: "https://picsum.photos/200/200?a=6",
+    img: produto6,
   },
   {
     cod: 7,
-    nome: "Camiseta 07",
+    nome: "Space monkey",
     valor: 200.0,
-    img: "https://picsum.photos/200/200?a=7",
+    img: produto7,
   },
   {
     cod: 8,
-    nome: "Camiseta 08",
-    valor: 180.0,
-    img: "https://picsum.photos/200/200?a=8",
+    nome: "Space on B/W",
+    valor: 150,
+    img: produto8,
   },
   {
     cod: 9,
-    nome: "Camiseta 09",
+    nome: "Sideral",
     valor: 100.0,
-    img: "https://picsum.photos/200/200?a=9",
+    img: produto9,
   },
   {
     cod: 10,
-    nome: "Camiseta 10",
+    nome: "Surfer",
     valor: 130.0,
-    img: "https://picsum.photos/200/200?a=10",
+    img: produto10,
   },
   {
     cod: 11,
-    nome: "Camiseta 11",
+    nome: "Space Butterfly",
     valor: 110.0,
-    img: "https://picsum.photos/200/200?a=11",
+    img: produto11,
   },
   {
     cod: 12,
-    nome: "Camiseta 12",
+    nome: "One way",
     valor: 300.0,
-    img: "https://picsum.photos/200/200?a=12",
+    img: produto12,
   },
 ]
 class App extends React.Component {
   state = {
-    filtroMin: 100,
+    filtroMin: 0,
     filtroMax: 500,
-    filtroNome: "Camiseta",
+    filtroNome: "",
     produtosNoCarrinho: []
   };
 
@@ -167,7 +180,7 @@ class App extends React.Component {
         />
         <Carrinho 
           produtosNoCarrinho={this.state.produtosNoCarrinho}
-          removeProdutoCarrinho={this.state.removeProdutoCarrinho}
+          removeProdutoCarrinho={this.removeProdutoCarrinho}
         />
       </AppContainer>
     );

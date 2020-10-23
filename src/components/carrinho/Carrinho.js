@@ -31,7 +31,7 @@ class Carrinho extends React.Component {
         })}
         
       </ContainerLista>
-      <p>Valor total: R${this.calculaValorTotal()},00</p>
+      <h4>Valor total: R${this.calculaValorTotal()},00</h4>
     </ContainerdoCarrinho>
   }
 }
