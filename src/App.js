@@ -1,18 +1,16 @@
+import React from "react";
 
-import React from "react"; 
- 
-import Produtos from "./components/produtos/Produtos";  
+import Produtos from "./components/produtos/Produtos";
 import Carrinho from "./components/carrinho/Carrinho";
 import Filtro from "./components/filtro/Filtro";
 import "./App.css";
-import styled from "styled-components"
-
+import styled from "styled-components";
 
 const AppContainer = styled.div`
-display: grid;
-grid-template-columns: 1fr 3fr 1fr;
-padding: 16px;
-gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 16px;
+  gap: 8px;
 `;
 
 const produtos = [
@@ -88,84 +86,91 @@ const produtos = [
     valor: 300.0,
     img: "https://picsum.photos/200/200?a=12",
   },
-]
+];
 class App extends React.Component {
   state = {
     filtroMin: 100,
     filtroMax: 500,
     filtroNome: "Camiseta",
-    produtosNoCarrinho: []
+    produtosNoCarrinho: [],
   };
 
-  onChangeFiltroMin = (event) =>{
-    this.setState({filtroMin: event.target.value})
-  }
+  onChangeFiltroMin = (event) => {
+    this.setState({ filtroMin: event.target.value });
+  };
 
-  onChangeFiltroMax = (event) =>{
-    this.setState({filtroMax: event.target.value})
-  }
+  onChangeFiltroMax = (event) => {
+    this.setState({ filtroMax: event.target.value });
+  };
 
-  onChangeFiltroNome = (event) =>{
-    this.setState({filtroNome: event.target.value})
-  }
+  onChangeFiltroNome = (event) => {
+    this.setState({ filtroNome: event.target.value });
+  };
 
   adicionaProdutoNoCarrinho = (codProduto) => {
-    const addNoCarrinho = this.state.produtosNoCarrinho.find(produto => codProduto === produto.cod)
+    const addNoCarrinho = this.state.produtosNoCarrinho.find(
+      (produto) => codProduto === produto.cod
+    );
 
-    if(addNoCarrinho){
-      const novoProdutoAdd = this.state.produtosNoCarrinho.map(produto => {
-        if(codProduto === produto.cod){
-          return{
+    if (addNoCarrinho) {
+      const novoProdutoAdd = this.state.produtosNoCarrinho.map((produto) => {
+        if (codProduto === produto.cod) {
+          return {
             ...produto,
-            quantidade: produto.quantidade + 1
-          }
+            quantidade: produto.quantidade + 1,
+          };
         }
-        return produto
-      })
-      this.setState({produtosNoCarrinho: novoProdutoAdd})
+        return produto;
+      });
+      this.setState({ produtosNoCarrinho: novoProdutoAdd });
     } else {
-      const produtoNovo = produtos.find(produto => codProduto === produto.cod)
+      const produtoNovo = produtos.find(
+        (produto) => codProduto === produto.cod
+      );
 
-      const novoProdutoAdd = [...this.state.produtosNoCarrinho, {...produtoNovo, quantidade: 1}]
+      const novoProdutoAdd = [
+        ...this.state.produtosNoCarrinho,
+        { ...produtoNovo, quantidade: 1 },
+      ];
 
-      this.setState({produtosNoCarrinho: novoProdutoAdd})
+      this.setState({ produtosNoCarrinho: novoProdutoAdd });
     }
-  }
+  };
 
   removeProdutoCarrinho = (codProduto) => {
-    const novoProdutoNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
-      if(produto.cod === codProduto) {
-        return {
-          ...produto,
-          quantidade: produto.quantidade -1
+    const novoProdutoNoCarrinho = this.state.produtosNoCarrinho
+      .map((produto) => {
+        if (produto.cod === codProduto) {
+          return {
+            ...produto,
+            quantidade: produto.quantidade - 1,
+          };
         }
-      }
-      return produto
-    }).filter((produto) => produto.quantidade > 0)
+        return produto;
+      })
+      .filter((produto) => produto.quantidade > 0);
 
-    this.setState({ produtosNoCarrinho: novoProdutoNoCarrinho })
-    
-  }
+    this.setState({ produtosNoCarrinho: novoProdutoNoCarrinho });
+  };
   render() {
     return (
       <AppContainer>
-        <Filtro 
+        <Filtro
           filtroMin={this.state.filtroMin}
           filtroMax={this.state.filtroMax}
           filtroNome={this.state.filtroNome}
           onChangeFiltroMin={this.onChangeFiltroMin}
           onChangeFiltroMax={this.onChangeFiltroMax}
           onChangeFiltroNome={this.onChangeFiltroNome}
-
         />
-        <Produtos 
+        <Produtos
           produtos={produtos}
           filtroMin={this.state.filtroMin}
           filtroMax={this.state.filtroMax}
           filtroNome={this.state.filtroNome}
           adicionaProdutoNoCarrinho={this.adicionaProdutoNoCarrinho}
         />
-        <Carrinho 
+        <Carrinho
           produtosNoCarrinho={this.state.produtosNoCarrinho}
           removeProdutoCarrinho={this.state.removeProdutoCarrinho}
         />
