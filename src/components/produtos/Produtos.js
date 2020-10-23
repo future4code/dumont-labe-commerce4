@@ -3,23 +3,29 @@ import Card from "./Card";
 import styled from "styled-components";
 
 const ContainerDeProdutos = styled.div`
-  border: 1px solid black;
-
+  
 `;
 
 const Cabecalho = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+
+  p {
+    margin-left: 30px;
+  }
+
+  select {
+    margin-right: 30px;
+  }
 `;
 
 const GridProdutos = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 8px;
-
+  gap: 10px;
+  margin: 20px;
+  
 `
 
 class Produtos extends React.Component {
