@@ -4,7 +4,7 @@ import styled from "styled-components"
 const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: monospace;
 
   img {
     display: flex;
@@ -19,8 +19,11 @@ const CardInfos = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: center;
+   align-items: center;
 
   p {
+    
+    font-size:20px;
     margin: 4px 0;
   }
 
@@ -38,7 +41,7 @@ class Card extends React.Component {
       <CardsContainer>
         <img src={produto.img} />
         <CardInfos>
-          <p>{produto.nome}</p>
+          <p><strong>{produto.nome}</strong></p>
           <p>R${produto.valor},00</p>
           <AddCarrinho onClick={() => this.props.adicionaProdutoNoCarrinho(produto.cod)}>
             Adicionar ao carrinho
