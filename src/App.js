@@ -104,8 +104,8 @@ const produtos = [
 ]
 class App extends React.Component {
   state = {
-    filtroMin: 0,
-    filtroMax: 500,
+    filtroMin: "",
+    filtroMax: "",
     filtroNome: "",
     produtosNoCarrinho: []
   };
