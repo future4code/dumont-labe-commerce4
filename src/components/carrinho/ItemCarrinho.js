@@ -13,11 +13,13 @@ const ContainerdoItem = styled.div`
 `
 class ItemCarrinho extends React.Component {
     
-    render(){
-        return( <ContainerdoItem>
+    render() {
+        return( 
+        <ContainerdoItem>
             <p>{this.props.item.quantidade}</p>
             <p>{this.props.item.nome}</p>
-            <button onClick={() => this.props.removeProdutoCarrinho(this.props.item.cod)}>Remover</button>
+            <button 
+            onClick={() => this.props.removeProdutoCarrinho(this.props.item.cod)}>Remover</button>
         </ContainerdoItem>
         )}
 };

@@ -134,7 +134,7 @@ class App extends React.Component {
 
   removeProdutoCarrinho = (codProduto) => {
     const novoProdutoNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
-      if(produto.cod === codProduto){
+      if(produto.cod === codProduto) {
         return {
           ...produto,
           quantidade: produto.quantidade -1
@@ -143,9 +143,9 @@ class App extends React.Component {
       return produto
     }).filter((produto) => produto.quantidade > 0)
 
-    this.setState({produtosNoCarrinho: novoProdutoNoCarrinho})
+    this.setState({ produtosNoCarrinho: novoProdutoNoCarrinho })
+    
   }
-
   render() {
     return (
       <AppContainer>
