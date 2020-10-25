@@ -3,8 +3,8 @@ import styled from "styled-components"
 import ItemCarrinho from "./ItemCarrinho";
 
 const ContainerdoCarrinho = styled.div`
-  border: 1px solid black;
-  padding: 8px;
+  /* border: 1px solid black; */
+  padding: 0px;
 `;
 const ContainerLista = styled.div`
   display: grid;
