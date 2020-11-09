@@ -4,8 +4,14 @@ import styled from "styled-components"
 
 const DivFiltro = styled.div`
 display: flex;
+align-items: center;
 justify-content: space-evenly;
 background-color: #1d3557;
+height: 60px;
+/* position:fixed;
+top: 0;
+right:0;
+left: 0; */
 
 
 .inputValores {
@@ -27,6 +33,7 @@ const DivInput = styled.label`
   display: flex;
   flex-direction: column; 
   align-items: flex-start;
+  margin-top: 8px;
   margin-bottom: 8px;
   
 `
